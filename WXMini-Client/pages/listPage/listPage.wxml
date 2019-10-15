@@ -1,0 +1,7 @@
+<!--pages/listPage/listPage.wxml-->
+<view class='container'>
+  <block wx:for="{{devicesList}}">
+    <view>{{item.name}}</view>
+
+  </block>
+</view>
