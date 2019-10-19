@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    itemTextWidth: 0,
     devicesList: {}
   },
 
@@ -13,8 +14,15 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+
+    const systemInfo = wx.getSystemInfoSync()
+
+    that.setData({
+      itemTextWidth: (systemInfo.windowWidth - 72 - 24)
+    })
+
     wx.request({
-      url: "http://localhost:8086/device/list", //仅为示例，并非真实的接口地址
+      url: "http://192.168.1.13:8086/device/list", //仅为示例，并非真实的接口地址
       data: {
         type: "MacBookPro"
       },
@@ -23,9 +31,17 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function(res) {
-        console.log(res.data)
+        var recvData = res.data
+
+        console.log(recvData)
+
+        for (var index = 0; index < recvData.length; index++) {
+          var item = recvData[index]
+          item.proPicUri = item.proPicUri.replace("cpu_thumbnails", "cpu_pictures")
+        }
+
         that.setData({
-          devicesList : res.data
+          devicesList: recvData
         })
       }
     })
