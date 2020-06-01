@@ -20,11 +20,14 @@ Page({
     that.setData({
       itemTextWidth: (systemInfo.windowWidth - 72 - 24)
     })
+    wx.setNavigationBarTitle({
+      title: that.options.type
+    })
 
     wx.request({
-      url: "http://192.168.1.13:8086/device/list", //仅为示例，并非真实的接口地址
+      url: "http://localhost:8086/device/list", //仅为示例，并非真实的接口地址
       data: {
-        type: "MacBookPro"
+        type: that.options.type
       },
       method: "GET",
       header: {
@@ -39,7 +42,7 @@ Page({
           var item = recvData[index]
           item.proPicUri = item.proPicUri.replace("cpu_thumbnails", "cpu_pictures")
         }
-
+        
         that.setData({
           devicesList: recvData
         })

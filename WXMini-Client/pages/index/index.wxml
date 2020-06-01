@@ -7,7 +7,16 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto" bindtap="gotoList">{{motto}}</text>
+  <view class="usermotto" style="display:block-inline">
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="iMac">iMac</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="iMacPro">iMac Pro</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="MacPro">Mac Pro</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="MacMini">Mac Mini</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="MacBook">MacBook</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="MacBookPro">MacBook Air</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="MacBookPro">MacBook Pro</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="iPhone">iPhone</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="iPad">iPad</text>
+    <text class="user-motto" style="margin-right:8px" bindtap="gotoList" data-type="iPod">iPod</text>
   </view>
 </view>

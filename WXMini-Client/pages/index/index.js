@@ -10,19 +10,17 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  gotoList: function(event) {
-    console.log(event)
-
+  gotoList: function (event) {
     wx.navigateTo({
-      url: '../listPage/listPage',
-    })
+        url: '../listPage/listPage?type=' + event.target.dataset.type
+      })
   },
-  onLoad: function() {
+  onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -50,7 +48,7 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
